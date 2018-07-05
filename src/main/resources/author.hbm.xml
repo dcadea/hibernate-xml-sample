@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<hibernate-mapping>
+    <class name="club.cheapok.hibernate.xml.sample.model.Author"
+           table="t_author">
+
+        <id column="author_id" name="id" type="java.lang.Long">
+            <generator class="increment"/>
+        </id>
+
+        <property column="first_name" name="firstName" type="java.lang.String"/>
+
+        <property column="last_name" name="lastName" type="java.lang.String"/>
+
+        <set name="books" lazy="false">
+            <key column="author_id"/>
+            <one-to-many class="club.cheapok.hibernate.xml.sample.model.Book"/>
+        </set>
+    </class>
+</hibernate-mapping>
